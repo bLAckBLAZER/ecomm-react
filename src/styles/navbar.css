@@ -1,0 +1,18 @@
+.navbar {
+  background-color: var(--pure-white);
+  justify-content: space-around;
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+
+.nav-actions {
+  color: var(--secondary-color);
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.navbar .input {
+  align-self: center;
+  width: 20%;
+  border-radius: 1rem;
+}
