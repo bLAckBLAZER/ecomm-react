@@ -28,21 +28,21 @@ export const categories = [
     _id: uuid(),
     categoryName: "Sneakers",
     categoryImage:
-      "https://cdn.thewirecutter.com/wp-content/media/2021/02/whitesneakers-2048px-4187.jpg",
+      "https://res.cloudinary.com/omjcloud/image/upload/v1647761974/Ecommerce%20App/Category%20Images/sneakers_glbhue.jpg",
     description: "Stylish and fashionable shoes to impress everyone around you",
   },
   {
     _id: uuid(),
     categoryName: "Sports Shoes",
     categoryImage:
-      "https://footwearnews.com/wp-content/uploads/2021/08/nike-zoomx-vaporfly-next.jpg",
+      "https://res.cloudinary.com/omjcloud/image/upload/v1647761974/Ecommerce%20App/Category%20Images/sports-shoes_j3qd2u.jpg",
     description: "Strong and sturdy shoes for various sport activities",
   },
   {
     _id: uuid(),
     categoryName: "Sandals",
     categoryImage:
-      "https://5.imimg.com/data5/ZL/AT/BR/SELLER-2630785/men-sandle-500x500.png",
+      "https://res.cloudinary.com/omjcloud/image/upload/v1647761975/Ecommerce%20App/Category%20Images/sandals_liswbd.png",
     description:
       "Want a blend of comfy and sporty go for Sandals - all time hit!",
   },
@@ -50,7 +50,7 @@ export const categories = [
     _id: uuid(),
     categoryName: "Slippers",
     categoryImage:
-      "https://5.imimg.com/data5/RV/ZY/SW/SELLER-36376318/slides-men-500x500.JPG",
+      "https://res.cloudinary.com/omjcloud/image/upload/v1647761973/Ecommerce%20App/Category%20Images/slippers_ugwsqd.jpg",
     description: "Too lazy to tie the laces.... you must be a slipper guy :p",
   },
 ];
