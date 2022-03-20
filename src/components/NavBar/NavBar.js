@@ -1,12 +1,20 @@
 import "../../styles/navbar.css";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/images/logo.png";
 
 export const NavBar = () => {
   return (
     <nav className="navbar fixed">
-      <a href="#" className="nav-heading">
-        Sneakoholics
-      </a>
+      <Link to="/">
+        <div className="flex align-ctr justify-ctr">
+          <div className="nav-logo">
+            <img src={Logo} alt="" />
+          </div>
+          <div href="#" className="nav-heading">
+            Sneakoholics
+          </div>
+        </div>
+      </Link>
       <input
         type="text"
         className="input"

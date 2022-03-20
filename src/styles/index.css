@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Dancing+Script&display=swap");
 
 @import url(./utils.css);
 
 :root {
   --background-color: #f7f7f7;
+  --title-font-family: "Dancing Script", cursive;
 }
 
 body {
