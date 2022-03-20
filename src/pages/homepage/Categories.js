@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Categories = () => {
   const [categories, setCategories] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getCategories = async () => {
@@ -21,15 +23,21 @@ export const Categories = () => {
     getCategories();
   }, []);
 
+  const onCategoryClick = () => {
+    navigate("/product");
+  };
+
   return (
-    <section className="home-categories">
+    <section className="grid-4-col home-categories">
       {categories.map(({ id, categoryName, categoryImage }) => (
-        <Link to={{ pathname: "/products" }}>
-          <div className="category" key={id}>
-            <img src={categoryImage} alt="" className="img category-img" />
-            <div className="category-name">{categoryName}</div>
-          </div>
-        </Link>
+        <div className="category" key={id} onClick={onCategoryClick}>
+          <img
+            src={categoryImage}
+            alt={categoryName}
+            className="img img-round"
+          />
+          <div className="category-name">{categoryName}</div>
+        </div>
       ))}
     </section>
   );

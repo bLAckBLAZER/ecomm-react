@@ -4,7 +4,7 @@ import { Footer } from "../../components/Footer/Footer";
 
 import { HeroSection } from "./HeroSection";
 import { Categories } from "./Categories";
-import { Collections } from "./Collections";
+import { Brands } from "./Brands";
 
 export const Homepage = () => {
   return (
@@ -14,12 +14,12 @@ export const Homepage = () => {
       <main>
         <HeroSection />
 
-        <div className="home-heading">Choose your category</div>
+        <div className="home-heading txt-center">Shop by Category</div>
 
         <Categories />
 
-        <div class="home-heading">Find latest collections here</div>
-        <Collections />
+        <div class="home-heading txt-center">Shop by brands</div>
+        <Brands />
       </main>
 
       <Footer />
