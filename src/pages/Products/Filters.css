@@ -1,0 +1,45 @@
+.filters {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  padding: 1rem;
+  height: 100vh;
+  z-index: 10;
+}
+
+.filter-list {
+  border-right: 1px solid var(--primary-color);
+  height: 100vh;
+}
+
+.filter-list::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-heading {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: var(--weight-semibold);
+}
+
+.filter-subheading {
+  font-size: 1rem;
+  margin-left: 0.3rem;
+}
+
+.filter-item {
+  margin: 1.5rem 0;
+}
+
+.filter-item li {
+  margin: 0.5rem 0;
+}
+
+.filter-item #slider {
+  width: 80%;
+}
+
+.product-list {
+  overflow-y: scroll;
+  height: 100vh;
+}

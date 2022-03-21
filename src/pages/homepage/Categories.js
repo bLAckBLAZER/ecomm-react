@@ -24,7 +24,7 @@ export const Categories = () => {
   }, []);
 
   const onCategoryClick = () => {
-    navigate("/product");
+    navigate("/products");
   };
 
   return (

@@ -63,18 +63,20 @@
   margin: 0 auto;
 }
 
-/* Media queries for meidum screen size */
-
-@media screen and (max-width: 768px) {
-  .grid-4-col {
-    grid-template-columns: 1fr 1fr;
-  }
+.grid-5-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  width: 100%;
+  gap: 1rem;
+  margin: 0 auto;
 }
 
-/* Media queries for small mobile screen size */
+.grid-30-70 {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+}
 
-@media screen and (max-width: 480px) {
-  .grid-4-col {
-    grid-template-columns: 1fr;
-  }
+.grid-20-80 {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
 }
