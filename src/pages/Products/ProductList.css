@@ -38,3 +38,8 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+@media screen and (max-width: 880px) {
+  .grid-5-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}

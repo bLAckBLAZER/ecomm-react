@@ -13,8 +13,6 @@ export const Categories = () => {
         const result = await axios.get("/api/categories");
 
         setCategories(result.data.categories);
-
-        console.log(categories);
       } catch (error) {
         console.log("ERROR!!!! - ", error);
       }

@@ -10,6 +10,7 @@
 .filter-list {
   border-right: 1px solid var(--primary-color);
   height: 100vh;
+  overflow-y: scroll;
 }
 
 .filter-list::-webkit-scrollbar {

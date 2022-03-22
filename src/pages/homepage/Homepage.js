@@ -18,7 +18,7 @@ export const Homepage = () => {
 
         <Categories />
 
-        <div class="home-heading txt-center">Shop by brands</div>
+        <div className="home-heading txt-center">Shop by brands</div>
         <Brands />
       </main>
 
