@@ -1,0 +1,27 @@
+.navbar {
+  background-color: var(--pure-white);
+  justify-content: space-around;
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+
+.nav-logo img {
+  height: 2rem;
+  width: 2rem;
+}
+
+.nav-heading {
+  font-family: var(--title-font-family);
+}
+
+.nav-actions {
+  color: var(--secondary-color);
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.navbar .input {
+  align-self: center;
+  width: 30%;
+  border-radius: 1rem;
+}

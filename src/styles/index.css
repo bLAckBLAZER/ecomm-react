@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Dancing+Script&display=swap");
+
+@import url(./utils.css);
+
+:root {
+  --background-color: #f7f7f7;
+  --title-font-family: "Dancing Script", cursive;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
