@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Filters.css";
 import axios from "axios";
-import { v4 as uuid } from "uuid";
 import { useProduct } from "../../contexts/ProductContext";
 import { productDefaultState } from "../../contexts/productDefaultStates";
-import { isCategorySelected } from "../../utils/isCategorySelected";
 
 export const Filters = () => {
   const { state, dispatch } = useProduct();
@@ -85,27 +83,26 @@ export const Filters = () => {
           <div className="filter-heading">Category</div>
 
           <ul>
-            {categories.map((category) => (
+            {categories.map(({ categoryName }) => (
               <li>
                 <input
                   type="checkbox"
                   name="category"
-                  key={category.categoryName}
-                  value={category.categoryName}
-                  id={category.categoryName}
-                  checked={isCategorySelected(
-                    state.selectedCategories,
-                    category._id
+                  key={categoryName}
+                  value={categoryName}
+                  id={categoryName}
+                  checked={state.selectedCategories.includes(
+                    categoryName.toLowerCase()
                   )}
                   onChange={() =>
-                    dispatch({ type: "CATEGORY_CHANGE", payload: category })
+                    dispatch({
+                      type: "CATEGORY_CHANGE",
+                      payload: categoryName.toLowerCase(),
+                    })
                   }
                 />
-                <label
-                  htmlFor={category.categoryName}
-                  className="filter-subheading"
-                >
-                  {category.categoryName}
+                <label htmlFor={categoryName} className="filter-subheading">
+                  {categoryName}
                 </label>
               </li>
             ))}

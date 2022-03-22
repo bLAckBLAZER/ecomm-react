@@ -1,4 +1,3 @@
-import { isCategorySelected } from "../utils/isCategorySelected";
 import { removeCategory } from "../utils/removeCategory";
 
 export const productReducer = (state, action) => {
@@ -13,25 +12,25 @@ export const productReducer = (state, action) => {
     case "OUT_OF_STOCK":
       return { ...state, includeOutOfStock: !state.includeOutOfStock };
     case "CATEGORY_CHANGE":
-      if (!isCategorySelected(state.selectedCategories, payload._id)) {
+      if (state.selectedCategories.includes(payload)) {
         return {
           ...state,
-          selectedCategories: state.selectedCategories.concat(payload),
+          selectedCategories: removeCategory(state.selectedCategories, payload),
         };
-      } else {
-        const updatedCategories = removeCategory(
-          state.selectedCategories,
-          payload._id
-        );
-
-        return { ...state, selectedCategories: updatedCategories };
       }
+
+      return {
+        ...state,
+        selectedCategories: state.selectedCategories.concat([payload]),
+      };
 
     case "BRAND_CHANGE":
       const updatedBrands = [...state.selectedBrands];
       state.selectedBrands.includes(payload)
         ? updatedBrands.splice(updatedBrands.indexOf(payload), 1)
         : updatedBrands.push(payload);
+
+      console.log("brands: ", updatedBrands);
 
       return { ...state, selectedBrands: updatedBrands };
 

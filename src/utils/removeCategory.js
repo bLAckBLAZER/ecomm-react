@@ -1,11 +1,7 @@
-export const removeCategory = (categoryList, categoryToRemoveID) => {
-  const updatedCategories = [];
+export const removeCategory = (categoryList, categoryToRemove) => {
+  const updatedCategories = [...categoryList];
 
-  for (let category of categoryList) {
-    if (category._id !== categoryToRemoveID) {
-      updatedCategories.push(category);
-    }
-  }
+  updatedCategories.splice(updatedCategories.indexOf(categoryToRemove), 1);
 
   return updatedCategories;
 };
