@@ -28,7 +28,7 @@ export const products = [
     category: "sports shoes",
     originalPrice: 9999,
     inStock: true,
-    rating: 4,
+    rating: 3,
     productImage:
       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5615d24c-d429-4f6f-9457-daa083e99dcc/air-max-genome-shoes-nxMDJ2.png",
   },
@@ -41,7 +41,7 @@ export const products = [
     category: "sneakers",
     originalPrice: 9999,
     inStock: true,
-    rating: 4,
+    rating: 2,
     productImage:
       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5615d24c-d429-4f6f-9457-daa083e99dcc/air-max-genome-shoes-nxMDJ2.png",
   },
@@ -54,7 +54,7 @@ export const products = [
     category: "sneakers",
     originalPrice: 9999,
     inStock: true,
-    rating: 4,
+    rating: 1,
     productImage:
       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5615d24c-d429-4f6f-9457-daa083e99dcc/air-max-genome-shoes-nxMDJ2.png",
   },
@@ -80,7 +80,7 @@ export const products = [
     category: "sneakers",
     originalPrice: 9999,
     inStock: true,
-    rating: 4,
+    rating: 3,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -92,7 +92,7 @@ export const products = [
     category: "sports shoes",
     originalPrice: 9999,
     inStock: true,
-    rating: 4,
+    rating: 2,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -104,7 +104,7 @@ export const products = [
     category: "sneakers",
     originalPrice: 9999,
     inStock: true,
-    rating: 4,
+    rating: 1,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -128,7 +128,7 @@ export const products = [
     category: "sneakers",
     originalPrice: 9999,
     inStock: true,
-    rating: 4,
+    rating: 3,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -140,7 +140,7 @@ export const products = [
     category: "sports shoes",
     originalPrice: 9999,
     inStock: false,
-    rating: 4,
+    rating: 2,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -152,7 +152,7 @@ export const products = [
     category: "sneakers",
     originalPrice: 9999,
     inStock: false,
-    rating: 4,
+    rating: 1,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -176,7 +176,7 @@ export const products = [
     category: "sneakers",
     originalPrice: 9999,
     inStock: false,
-    rating: 4,
+    rating: 3,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -188,7 +188,7 @@ export const products = [
     category: "sandals",
     originalPrice: 9999,
     inStock: false,
-    rating: 4,
+    rating: 2,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -200,7 +200,7 @@ export const products = [
     category: "sandals",
     originalPrice: 9999,
     inStock: true,
-    rating: 4,
+    rating: 1,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -224,7 +224,7 @@ export const products = [
     category: "sneakers",
     originalPrice: 9999,
     inStock: true,
-    rating: 4,
+    rating: 3,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -236,7 +236,7 @@ export const products = [
     category: "sneakers",
     originalPrice: 9999,
     inStock: true,
-    rating: 4,
+    rating: 2,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -248,7 +248,7 @@ export const products = [
     category: "sneakers",
     originalPrice: 9999,
     inStock: false,
-    rating: 4,
+    rating: 1,
     productImage: "https://picsum.photos/208",
   },
 ];
