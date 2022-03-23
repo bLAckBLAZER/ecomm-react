@@ -4,7 +4,7 @@ export const Brands = () => {
   const navigate = useNavigate();
 
   const onBrandClick = () => {
-    navigate("/product");
+    navigate("/products");
   };
 
   return (

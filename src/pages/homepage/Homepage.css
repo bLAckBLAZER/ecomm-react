@@ -57,3 +57,19 @@
 .category-name {
   color: var(--secondary-color);
 }
+
+/* Media queries for meidum screen size */
+
+@media screen and (max-width: 768px) {
+  .grid-4-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Media queries for small mobile screen size */
+
+@media screen and (max-width: 480px) {
+  .grid-4-col {
+    grid-template-columns: 1fr;
+  }
+}
