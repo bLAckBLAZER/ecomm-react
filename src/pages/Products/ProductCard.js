@@ -1,10 +1,11 @@
 export const ProductCard = ({ product }) => {
-  const { productImage, description, title, brand, price, inStock } = product;
+  const { productImage, description, title, brand, price, inStock, rating } =
+    product;
 
   return (
     <div className="product">
-      <div className={`card card-ecom ${!inStock ? "pos-rel" : ""}`}>
-        <div className="card-body">
+      <div className={`card card-ecom badge-container`}>
+        <div className="card-body ">
           {!inStock ? (
             <div className="card-overlay">
               <div className="overlay-text">Out Of Stock</div>
@@ -13,6 +14,7 @@ export const ProductCard = ({ product }) => {
           <div className="card-img">
             <img src={productImage} alt={description} className="img-res" />
           </div>
+          <div class="badge rating">{rating} ⭐</div>
           <div className="card-heading">
             <h2 className="card-title">{title}</h2>
             <h4 className="card-subtitle">{brand}</h4>

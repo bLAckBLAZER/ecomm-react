@@ -26,6 +26,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   cursor: not-allowed;
+  z-index: 1;
 }
 
 .overlay-text {
@@ -34,6 +35,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--text-color);
+}
+
+.card-ecom .rating {
+  top: 0;
+  right: 0;
+  left: auto;
+  bottom: auto;
+  border-radius: 0;
+  font-size: 0.8rem;
 }
 
 @media screen and (max-width: 1375px) {
