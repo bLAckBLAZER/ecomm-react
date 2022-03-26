@@ -14,9 +14,15 @@ export const Wishlist = () => {
           <div className="h3 txt-center">My Wishlist</div>
           <hr />
           <div className="flex flex-wrap justify-center">
-            {userState.userWishlist.map((item) => (
-              <ProductCard product={item} key={item._id} />
-            ))}
+            {userState.userWishlist.length === 0 ? (
+              <div className="width-100 mg-y-2 txt-center">
+                No items added in wishlist...
+              </div>
+            ) : (
+              userState.userWishlist.map((item) => (
+                <ProductCard product={item} key={item._id} />
+              ))
+            )}
           </div>
         </div>
       </main>
