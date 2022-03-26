@@ -31,12 +31,14 @@ export const NavBar = () => {
             <button className="btn btn-primary">Login</button>
           </Link>
         </li>
-        <li className="nav-action-item">
-          <div className="badge-container">
-            <i className="fas fa-shopping-cart fa-2x" aria-hidden="true"></i>
-            <span className="badge badge-icon">{userCart.length}</span>
-          </div>
-        </li>
+        <Link to="/cart">
+          <li className="nav-action-item">
+            <div className="badge-container">
+              <i className="fas fa-shopping-cart fa-2x" aria-hidden="true"></i>
+              <span className="badge badge-icon">{userCart.length}</span>
+            </div>
+          </li>
+        </Link>
         <Link to="/wishlist">
           <li className="nav-action-item">
             <div className="badge-container">

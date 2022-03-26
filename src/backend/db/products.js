@@ -16,6 +16,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 4,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage:
       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5615d24c-d429-4f6f-9457-daa083e99dcc/air-max-genome-shoes-nxMDJ2.png",
   },
@@ -29,6 +31,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 3,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage:
       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5615d24c-d429-4f6f-9457-daa083e99dcc/air-max-genome-shoes-nxMDJ2.png",
   },
@@ -42,6 +46,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 2,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage:
       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5615d24c-d429-4f6f-9457-daa083e99dcc/air-max-genome-shoes-nxMDJ2.png",
   },
@@ -55,6 +61,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 1,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage:
       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5615d24c-d429-4f6f-9457-daa083e99dcc/air-max-genome-shoes-nxMDJ2.png",
   },
@@ -68,6 +76,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 4,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage:
       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5615d24c-d429-4f6f-9457-daa083e99dcc/air-max-genome-shoes-nxMDJ2.png",
   },
@@ -81,6 +91,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 3,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -93,6 +105,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 2,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -105,6 +119,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 1,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -117,6 +133,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 4,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -129,6 +147,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 3,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -141,6 +161,8 @@ export const products = [
     originalPrice: 9999,
     inStock: false,
     rating: 2,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -153,6 +175,8 @@ export const products = [
     originalPrice: 9999,
     inStock: false,
     rating: 1,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -165,6 +189,8 @@ export const products = [
     originalPrice: 9999,
     inStock: false,
     rating: 4,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -177,6 +203,8 @@ export const products = [
     originalPrice: 9999,
     inStock: false,
     rating: 3,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -189,6 +217,8 @@ export const products = [
     originalPrice: 9999,
     inStock: false,
     rating: 2,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -201,6 +231,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 1,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -213,6 +245,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 4,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -225,6 +259,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 3,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -237,6 +273,8 @@ export const products = [
     originalPrice: 9999,
     inStock: true,
     rating: 2,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
   {
@@ -249,6 +287,8 @@ export const products = [
     originalPrice: 9999,
     inStock: false,
     rating: 1,
+    qtyOrdered: 0,
+    deliveryCharge: 0,
     productImage: "https://picsum.photos/208",
   },
 ];
