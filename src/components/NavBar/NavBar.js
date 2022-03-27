@@ -1,8 +1,13 @@
 import "../../styles/navbar.css";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
+import { useUser } from "../../contexts/UserContext";
 
 export const NavBar = () => {
+  const { userState } = useUser();
+
+  const { userCart, userWishlist } = userState;
+
   return (
     <nav className="navbar fixed">
       <Link to="/">
@@ -29,15 +34,17 @@ export const NavBar = () => {
         <li className="nav-action-item">
           <div className="badge-container">
             <i className="fas fa-shopping-cart fa-2x" aria-hidden="true"></i>
-            <span className="badge badge-icon">10</span>
+            <span className="badge badge-icon">{userCart.length}</span>
           </div>
         </li>
-        <li className="nav-action-item">
-          <div className="badge-container">
-            <i className="far fa-heart fa-2x"></i>
-            <span className="badge badge-icon">10</span>
-          </div>
-        </li>
+        <Link to="/wishlist">
+          <li className="nav-action-item">
+            <div className="badge-container">
+              <i className="far fa-heart fa-2x"></i>
+              <span className="badge badge-icon">{userWishlist.length}</span>
+            </div>
+          </li>
+        </Link>
       </ul>
     </nav>
   );

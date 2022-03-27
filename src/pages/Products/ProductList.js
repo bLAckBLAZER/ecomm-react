@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useProduct } from "../../contexts/ProductContext";
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "../../components/ProductCards/ProductCard";
 import "./ProductList.css";
 
 import {

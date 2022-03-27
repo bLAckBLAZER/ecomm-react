@@ -8,6 +8,10 @@
   display: flex;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -36,6 +40,18 @@
 
 .flex-1 {
   flex: 1;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.mg-y-1 {
+  margin: 2rem 0;
+}
+
+.mg-y-2 {
+  margin: 2rem 0;
 }
 
 .pos-abs {
