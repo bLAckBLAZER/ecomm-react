@@ -5,11 +5,11 @@ import { CartPage, Homepage, Login, Products, Wishlist } from "./pages";
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Homepage />}></Route>
-      <Route path="/login" element={<Login />}></Route>
-      <Route path="/products" element={<Products />}></Route>
-      <Route path="/wishlist" element={<Wishlist />}></Route>
-      <Route path="/cart" element={<CartPage />}></Route>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/wishlist" element={<Wishlist />} />
+      <Route path="/cart" element={<CartPage />} />
     </Routes>
   );
 };

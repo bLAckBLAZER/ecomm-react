@@ -2,6 +2,7 @@ import { Footer } from "../../components/Footer/Footer";
 import { NavBar } from "../../components/NavBar/NavBar";
 import { useUser } from "../../contexts/UserContext";
 import { ProductCard } from "../../components/ProductCards/ProductCard";
+import { Link } from "react-router-dom";
 
 export const Wishlist = () => {
   const { userState, userDispatch } = useUser();
@@ -16,7 +17,12 @@ export const Wishlist = () => {
           <div className="flex flex-wrap justify-center">
             {userState.userWishlist.length === 0 ? (
               <div className="width-100 mg-y-2 txt-center">
-                No items added in wishlist...
+                <div>No items added in wishlist...</div>
+                <Link to="/products">
+                  <button className="btn btn-primary">
+                    Go to products page
+                  </button>
+                </Link>
               </div>
             ) : (
               userState.userWishlist.map((item) => (
