@@ -55,12 +55,10 @@ export const CartProduct = ({ product }) => {
                 userDispatch({ type: "DECREMENT_FROM_CART", payload: product })
               }
             ></i>
-            <input
-              type="number"
-              min={0}
-              className="input-qty"
-              value={qtyOrdered}
-            />
+
+            <div className="flex align-ctr justify-ctr flex-wrap input-qty">
+              {qtyOrdered}
+            </div>
             <i
               className="fas fa-plus qty-action"
               onClick={() =>

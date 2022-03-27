@@ -8,6 +8,8 @@ export const NavBar = () => {
 
   const { userCart, userWishlist } = userState;
 
+  const itemsInCart = userCart.reduce((acc, curr) => acc + curr.qtyOrdered, 0);
+
   return (
     <nav className="navbar fixed">
       <Link to="/">
@@ -35,7 +37,7 @@ export const NavBar = () => {
           <li className="nav-action-item">
             <div className="badge-container">
               <i className="fas fa-shopping-cart fa-2x" aria-hidden="true"></i>
-              <span className="badge badge-icon">{userCart.length}</span>
+              <span className="badge badge-icon">{itemsInCart}</span>
             </div>
           </li>
         </Link>
