@@ -1,6 +1,5 @@
 import "./Homepage.css";
-import { NavBar } from "../../components/NavBar/NavBar";
-import { Footer } from "../../components/Footer/Footer";
+import { NavBar, Footer } from "../../components";
 
 import { HeroSection } from "./HeroSection";
 import { Categories } from "./Categories";

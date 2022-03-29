@@ -3,11 +3,5 @@ export const checkAddedInCart = (arr, product) => {
     return false;
   }
 
-  for (let item of arr) {
-    if (item._id === product._id) {
-      return true;
-    }
-  }
-
-  return false;
+  return arr.some((item) => item._id === product._id);
 };

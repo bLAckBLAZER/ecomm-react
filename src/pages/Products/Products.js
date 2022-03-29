@@ -1,5 +1,4 @@
-import { Footer } from "../../components/Footer/Footer";
-import { NavBar } from "../../components/NavBar/NavBar";
+import { Footer, NavBar } from "../../components";
 import { Filters } from "./Filters";
 import { ProductList } from "./ProductList";
 

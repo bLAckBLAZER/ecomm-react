@@ -1,6 +1,4 @@
-import { Footer } from "../../components/Footer/Footer";
-import { NavBar } from "../../components/NavBar/NavBar";
-import { CartProduct } from "../../components/ProductCards/CartProduct";
+import { Footer, NavBar, CartProduct } from "../../components";
 import { useUser } from "../../contexts/UserContext";
 import { CartSummary } from "./CartSummary";
 import "./CartPage.css";
