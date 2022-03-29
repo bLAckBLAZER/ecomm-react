@@ -30,8 +30,6 @@ export const productReducer = (state, action) => {
         ? updatedBrands.splice(updatedBrands.indexOf(payload), 1)
         : updatedBrands.push(payload);
 
-      console.log("brands: ", updatedBrands);
-
       return { ...state, selectedBrands: updatedBrands };
 
     case "RESET":
