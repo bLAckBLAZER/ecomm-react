@@ -1,8 +1,7 @@
-import { Footer } from "../../components/Footer/Footer";
-import { NavBar } from "../../components/NavBar/NavBar";
 import { useUser } from "../../contexts/UserContext";
-import { ProductCard } from "../../components/ProductCards/ProductCard";
 import { Link } from "react-router-dom";
+import { Footer, NavBar, ProductCard } from "../../components";
+
 
 export const Wishlist = () => {
   const { userState, userDispatch } = useUser();

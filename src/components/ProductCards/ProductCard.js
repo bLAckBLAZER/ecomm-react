@@ -1,4 +1,5 @@
 import { useUser } from "../../contexts/UserContext";
+import { checkItemWishlist } from "../../utils/checkItemWishlist";
 
 export const ProductCard = ({ product }) => {
   const { productImage, description, title, brand, price, inStock, rating } =
@@ -8,21 +9,7 @@ export const ProductCard = ({ product }) => {
 
   const { userWishlist, userCart } = userState;
 
-  const checkItemWishlist = (product) => {
-    if (userWishlist.length === 0) {
-      return false;
-    }
-
-    for (let item of userWishlist) {
-      if (item._id === product._id) {
-        return true;
-      }
-    }
-
-    return false;
-  };
-
-  const itemInWishlist = checkItemWishlist(product);
+  const itemInWishlist = checkItemWishlist(userWishlist, product);
 
   return (
     <div className="product">
@@ -45,7 +32,14 @@ export const ProductCard = ({ product }) => {
         </div>
         <div className="card-footer">
           <div className="card-actions">
-            <button className="btn btn-primary">Add to cart</button>
+            <button
+              className="btn btn-primary"
+              onClick={() =>
+                userDispatch({ type: "ADD_TO_CART", payload: product })
+              }
+            >
+              Add to cart
+            </button>
           </div>
 
           <div className="card-icons">
