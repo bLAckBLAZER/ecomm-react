@@ -60,6 +60,7 @@ export const signupHandler = function (schema, request) {
 
 export const loginHandler = function (schema, request) {
   const { email, password } = JSON.parse(request.requestBody);
+
   try {
     const foundUser = schema.users.findBy({ email });
     if (!foundUser) {
@@ -74,6 +75,7 @@ export const loginHandler = function (schema, request) {
         { _id: foundUser._id, email },
         process.env.REACT_APP_JWT_SECRET
       );
+
       foundUser.password = undefined;
       return new Response(200, {}, { foundUser, encodedToken });
     }

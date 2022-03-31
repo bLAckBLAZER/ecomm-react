@@ -25,3 +25,11 @@ button {
 .fas.fa-heart {
   color: red;
 }
+
+a {
+  text-decoration: underline;
+}
+
+i:hover {
+  cursor: pointer;
+}
