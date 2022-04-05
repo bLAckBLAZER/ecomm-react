@@ -10,6 +10,8 @@ import {
   Logout,
 } from "./pages";
 
+import { PrivateRoute } from "./components";
+
 const App = () => {
   return (
     <Routes>
@@ -18,8 +20,22 @@ const App = () => {
       <Route path="/logout" element={<Logout />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/products" element={<Products />} />
-      <Route path="/wishlist" element={<Wishlist />} />
-      <Route path="/cart" element={<CartPage />} />
+      <Route
+        path="/wishlist"
+        element={
+          <PrivateRoute>
+            <Wishlist />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/cart"
+        element={
+          <PrivateRoute>
+            <CartPage />
+          </PrivateRoute>
+        }
+      />
     </Routes>
   );
 };

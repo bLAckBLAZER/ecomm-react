@@ -48,7 +48,6 @@ export const NavBar = () => {
             </Link>
           )}
         </li>
-        <PrivateRoute>
           <Link to="/cart">
             <li className="nav-action-item">
               <div className="badge-container">
@@ -60,8 +59,6 @@ export const NavBar = () => {
               </div>
             </li>
           </Link>
-        </PrivateRoute>
-        <PrivateRoute>
           <Link to="/wishlist">
             <li className="nav-action-item">
               <div className="badge-container">
@@ -70,7 +67,6 @@ export const NavBar = () => {
               </div>
             </li>
           </Link>
-        </PrivateRoute>
       </ul>
     </nav>
   );

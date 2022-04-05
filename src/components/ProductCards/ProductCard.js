@@ -55,10 +55,11 @@ export const ProductCard = ({ product }) => {
               className={`${itemInWishlist ? "fas" : "far"} fa-heart`}
               aria-hidden="true"
               onClick={() =>
+                authState.token ?
                 userDispatch({
                   type: "UPDATE_WISHLIST",
                   payload: { product, itemInWishlist },
-                })
+                }) : navigate("/login")
               }
             ></i>
             <i className="fas fa-share-alt" aria-hidden="true"></i>
