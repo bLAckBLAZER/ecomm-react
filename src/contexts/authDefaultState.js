@@ -1,4 +1,6 @@
+import { getLocalStorage } from "../utils/localStorageCalls";
+
 export const authDefaultState = {
-  token: localStorage.getItem("token") || "",
-  user: JSON.parse(localStorage.getItem("user")) || null,
+  token: getLocalStorage("token") || "",
+  user: getLocalStorage("user", true) || null,
 };

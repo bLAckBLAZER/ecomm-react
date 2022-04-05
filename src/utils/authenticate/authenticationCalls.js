@@ -1,4 +1,5 @@
 import axios from "axios";
+import { removeLocalStorage, setLocalStorage } from "../localStorageCalls";
 
 export const userLogin = async (state, dispatch, email, password, navigate) => {
   try {
@@ -7,13 +8,13 @@ export const userLogin = async (state, dispatch, email, password, navigate) => {
       password,
     });
 
-    if (res.status === 200 || res.status === 201) {
+    if (res?.status === 200 || res?.status === 201) {
       const { foundUser, encodedToken } = res.data;
 
       dispatch({ type: "LOGIN", payload: { foundUser, encodedToken } });
 
-      localStorage.setItem("token", encodedToken);
-      localStorage.setItem("user", JSON.stringify(foundUser));
+      setLocalStorage("token", encodedToken);
+      setLocalStorage("user", foundUser, true);
 
       navigate("/products");
     }
@@ -24,9 +25,8 @@ export const userLogin = async (state, dispatch, email, password, navigate) => {
 
 export const userLogout = (dispatchAuth, userDispatch) => {
   try {
-    localStorage.removeItem("token");
-
-    localStorage.removeItem("user");
+    removeLocalStorage("token");
+    removeLocalStorage("user");
 
     dispatchAuth({ type: "LOGOUT" });
     userDispatch({ type: "RESET" });
