@@ -10,7 +10,7 @@ import {
   Logout,
 } from "./pages";
 
-import { PrivateRoute } from "./components";
+import { PageNotFound, PrivateRoute } from "./components";
 
 const App = () => {
   return (
@@ -34,6 +34,18 @@ const App = () => {
           <PrivateRoute>
             <CartPage />
           </PrivateRoute>
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <PageNotFound
+            errorMsg="Oops! Looks like you have lost your way. The page you're looking for
+does not exist.
+"
+            gotoMsg="Go to Homepage"
+            gotoPath="/"
+          />
         }
       />
     </Routes>

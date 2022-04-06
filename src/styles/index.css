@@ -33,3 +33,7 @@ a {
 i:hover {
   cursor: pointer;
 }
+
+.btn {
+  max-width: 100%;
+}
