@@ -4,6 +4,7 @@ import { updateCart } from "../utils/updateCart";
 import { checkAddedInCart } from "../utils/checkAddedInCart";
 import { decrementCart } from "../utils/decrementCart";
 import { removeFromCart } from "../utils/removeFromCart";
+import { userDefaultState } from "../contexts/userDefaultState";
 
 export const userReducer = (userState, { type, payload }) => {
   switch (type) {
@@ -51,6 +52,10 @@ export const userReducer = (userState, { type, payload }) => {
         ...userState,
         userCart: removeFromCart(userState.userCart, payload),
       };
+
+    case "RESET":
+      return userDefaultState;
+
     default:
       return userState;
   }

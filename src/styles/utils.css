@@ -46,6 +46,10 @@
   width: 100%;
 }
 
+.mg-y-auto {
+  margin: 0 auto;
+}
+
 .mg-y-1 {
   margin: 2rem 0;
 }
@@ -95,4 +99,35 @@
 .grid-20-80 {
   display: grid;
   grid-template-columns: 1fr 4fr;
+}
+
+.input-container {
+  display: flex;
+  gap: 0.5rem;
+  border: 1px solid var(--inactive-color);
+  border-radius: var(--radius);
+  width: 100%;
+  align-items: center;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background-color: var(--pure-white);
+}
+
+.input-container:focus-within {
+  border-color: var(--primary-color);
+}
+
+.input-container input[type="text"],
+.input-container input[type="password"],
+.input-container input[type="email"] {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.disabled,
+.btn-primary.disabled {
+  background-color: var(--inactive-color);
+  color: var(--pure-white);
+  cursor: not-allowed;
 }

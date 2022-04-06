@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import { useUser } from "../../contexts/UserContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { checkItemWishlist } from "../../utils/checkItemWishlist";
 
 export const ProductCard = ({ product }) => {
@@ -9,7 +11,11 @@ export const ProductCard = ({ product }) => {
 
   const { userWishlist, userCart } = userState;
 
+  const { authState } = useAuth();
+
   const itemInWishlist = checkItemWishlist(userWishlist, product);
+
+  const navigate = useNavigate();
 
   return (
     <div className="product">
@@ -35,7 +41,9 @@ export const ProductCard = ({ product }) => {
             <button
               className="btn btn-primary"
               onClick={() =>
-                userDispatch({ type: "ADD_TO_CART", payload: product })
+                authState.token
+                  ? userDispatch({ type: "ADD_TO_CART", payload: product })
+                  : navigate("/login")
               }
             >
               Add to cart
@@ -47,10 +55,11 @@ export const ProductCard = ({ product }) => {
               className={`${itemInWishlist ? "fas" : "far"} fa-heart`}
               aria-hidden="true"
               onClick={() =>
+                authState.token ?
                 userDispatch({
                   type: "UPDATE_WISHLIST",
                   payload: { product, itemInWishlist },
-                })
+                }) : navigate("/login")
               }
             ></i>
             <i className="fas fa-share-alt" aria-hidden="true"></i>

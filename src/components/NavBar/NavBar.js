@@ -2,9 +2,13 @@ import "../../styles/navbar.css";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 import { useUser } from "../../contexts/UserContext";
+import { useAuth } from "../../contexts/AuthContext";
+import { userLogout } from "../../utils/authenticate/authenticationCalls";
+import { PrivateRoute } from "../PrivateRoute/PrivateRoute";
 
 export const NavBar = () => {
-  const { userState } = useUser();
+  const { userState, userDispatch } = useUser();
+  const { authState, dispatchAuth } = useAuth();
 
   const { userCart, userWishlist } = userState;
 
@@ -29,26 +33,40 @@ export const NavBar = () => {
       />
       <ul className="nav-actions">
         <li className="nav-action-item">
-          <Link to="/login">
-            <button className="btn btn-primary">Login</button>
-          </Link>
+          {authState.token ? (
+            <Link to="/logout">
+              <button
+                className="btn btn-primary"
+                onClick={() => userLogout(dispatchAuth, userDispatch)}
+              >
+                Logout
+              </button>
+            </Link>
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-primary">Login</button>
+            </Link>
+          )}
         </li>
-        <Link to="/cart">
-          <li className="nav-action-item">
-            <div className="badge-container">
-              <i className="fas fa-shopping-cart fa-2x" aria-hidden="true"></i>
-              <span className="badge badge-icon">{itemsInCart}</span>
-            </div>
-          </li>
-        </Link>
-        <Link to="/wishlist">
-          <li className="nav-action-item">
-            <div className="badge-container">
-              <i className="far fa-heart fa-2x"></i>
-              <span className="badge badge-icon">{userWishlist.length}</span>
-            </div>
-          </li>
-        </Link>
+          <Link to="/cart">
+            <li className="nav-action-item">
+              <div className="badge-container">
+                <i
+                  className="fas fa-shopping-cart fa-2x"
+                  aria-hidden="true"
+                ></i>
+                <span className="badge badge-icon">{itemsInCart}</span>
+              </div>
+            </li>
+          </Link>
+          <Link to="/wishlist">
+            <li className="nav-action-item">
+              <div className="badge-container">
+                <i className="far fa-heart fa-2x"></i>
+                <span className="badge badge-icon">{userWishlist.length}</span>
+              </div>
+            </li>
+          </Link>
       </ul>
     </nav>
   );
