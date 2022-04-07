@@ -1,3 +1,27 @@
-## E-Commerce Backend
+# Sneakoholics - A ecommerce website created using React for sneaker lovers
 
-This folder contains the Mock Backend created for E-Commerce App. It contains different API end-points and database configuration for building E-Commerce; so that you can focus on building Frontend.
+Check it out [here](https://sneakoholic.netlify.app/)
+
+
+## Description
+
+This ecommerce wwebsite contains below features as of now:
+
+* Login as guest. User cannot add items in cart unless logged in.
+* Landing page
+* Products page
+* Add to cart / Add to wishlist
+* Authentication pages (layout)
+* Checkout page with cart details
+* Product cards
+
+
+## Tech stack used
+
+* React
+* HTML / CSS
+* Subtle UI - Own component library
+* React Router
+
+
+
