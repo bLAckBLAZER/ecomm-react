@@ -24,4 +24,7 @@ This ecommerce wwebsite contains below features as of now:
 * React Router
 
 
+## Preview
 
+
+![homepage](https://user-images.githubusercontent.com/48726860/162265534-0a3cb3f0-17de-48d8-89b2-59fdeb17a7f7.gif)
