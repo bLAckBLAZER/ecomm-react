@@ -48,25 +48,26 @@ export const NavBar = () => {
             </Link>
           )}
         </li>
-          <Link to="/cart">
-            <li className="nav-action-item">
-              <div className="badge-container">
-                <i
-                  className="fas fa-shopping-cart fa-2x"
-                  aria-hidden="true"
-                ></i>
+        <Link to="/cart">
+          <li className="nav-action-item">
+            <div className="badge-container">
+              <i className="fas fa-shopping-cart fa-2x" aria-hidden="true"></i>
+              {authState.token && itemsInCart > 0 && (
                 <span className="badge badge-icon">{itemsInCart}</span>
-              </div>
-            </li>
-          </Link>
-          <Link to="/wishlist">
-            <li className="nav-action-item">
-              <div className="badge-container">
-                <i className="far fa-heart fa-2x"></i>
+              )}
+            </div>
+          </li>
+        </Link>
+        <Link to="/wishlist">
+          <li className="nav-action-item">
+            <div className="badge-container">
+              <i className="far fa-heart fa-2x"></i>
+              {authState.token && userWishlist.length > 0 && (
                 <span className="badge badge-icon">{userWishlist.length}</span>
-              </div>
-            </li>
-          </Link>
+              )}
+            </div>
+          </li>
+        </Link>
       </ul>
     </nav>
   );

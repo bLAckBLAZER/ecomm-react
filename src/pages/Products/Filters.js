@@ -84,7 +84,7 @@ export const Filters = () => {
 
           <ul>
             {categories.map(({ categoryName }) => (
-              <li>
+              <li key={categoryName}>
                 <input
                   type="checkbox"
                   name="category"
