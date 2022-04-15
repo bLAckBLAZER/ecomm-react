@@ -1,5 +1,4 @@
 import { incrementCartView } from "../utils/incrementCartView";
-import { checkAddedInCart } from "../utils/checkAddedInCart";
 import { decrementCartView } from "../utils/decrementCartView";
 import { removeFromCartView } from "../utils/removeFromCartView";
 import { userDefaultState } from "../contexts/userDefaultState";
