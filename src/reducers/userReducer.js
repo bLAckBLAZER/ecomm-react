@@ -1,5 +1,3 @@
-import { removeFromWishlist } from "../utils/removeFromWishlist";
-import { addToWishlist } from "../utils/addToWishlist";
 import { updateCart } from "../utils/updateCart";
 import { checkAddedInCart } from "../utils/checkAddedInCart";
 import { decrementCart } from "../utils/decrementCart";
@@ -8,16 +6,6 @@ import { userDefaultState } from "../contexts/userDefaultState";
 
 export const userReducer = (userState, { type, payload }) => {
   switch (type) {
-    case "UPDATE_WISHLIST":
-      const updatedWishlist = payload.itemInWishlist
-        ? removeFromWishlist(userState.userWishlist, payload.product)
-        : addToWishlist(userState.userWishlist, payload.product);
-
-      return {
-        ...userState,
-        userWishlist: updatedWishlist,
-      };
-
     case "ADD_TO_CART":
       const isAddedInCart = checkAddedInCart(userState.userCart, payload);
 
@@ -52,6 +40,23 @@ export const userReducer = (userState, { type, payload }) => {
         ...userState,
         userCart: removeFromCart(userState.userCart, payload),
       };
+
+    case "ADD_TO_WISHLIST":
+      return {
+        ...userState,
+        userWishlist: userState.userWishlist.concat(payload),
+      };
+
+    case "REMOVE_FROM_WISHLIST":
+      return {
+        ...userState,
+        userWishlist: userState.userWishlist.filter(
+          (product) => product._id !== payload._id
+        ),
+      };
+
+    case "SET_WISHLIST":
+      return { ...userState, userWishlist: payload };
 
     case "RESET":
       return userDefaultState;

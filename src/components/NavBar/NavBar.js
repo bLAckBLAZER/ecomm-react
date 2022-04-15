@@ -4,7 +4,8 @@ import Logo from "../../assets/images/logo.png";
 import { useUser } from "../../contexts/UserContext";
 import { useAuth } from "../../contexts/AuthContext";
 import { userLogout } from "../../utils/authenticate/authenticationCalls";
-import { PrivateRoute } from "../PrivateRoute/PrivateRoute";
+import { useEffect } from "react";
+import { getUserWishlist } from "../../utils/productFunctions";
 
 export const NavBar = () => {
   const { userState, userDispatch } = useUser();
@@ -13,6 +14,12 @@ export const NavBar = () => {
   const { userCart, userWishlist } = userState;
 
   const itemsInCart = userCart.reduce((acc, curr) => acc + curr.qtyOrdered, 0);
+
+  useEffect(() => {
+    if (authState.token) {
+      getUserWishlist({ token: authState.token, userDispatch });
+    }
+  }, []);
 
   return (
     <nav className="navbar fixed">

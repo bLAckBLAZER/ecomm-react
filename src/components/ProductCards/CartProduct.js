@@ -1,5 +1,7 @@
 import { useUser } from "../../contexts/UserContext";
-import { checkItemWishlist } from "../../utils/checkItemWishlist";
+import { moveToWishlist } from "../../utils/productFunctions";
+
+import { useAuth } from "../../contexts/AuthContext";
 
 export const CartProduct = ({ product }) => {
   const {
@@ -16,15 +18,7 @@ export const CartProduct = ({ product }) => {
 
   const { userState, userDispatch } = useUser();
 
-  const moveToWishlist = (product) => {
-    if (!checkItemWishlist(userState.userWishlist, product)) {
-      userDispatch({
-        type: "UPDATE_WISHLIST",
-        payload: { product, itemInWishlist: false },
-      });
-    }
-    userDispatch({ type: "REMOVE_FROM_CART", payload: product });
-  };
+  const { authState } = useAuth();
 
   return (
     <div className="card card-ecom card-horizontal card-shadow">
@@ -80,7 +74,14 @@ export const CartProduct = ({ product }) => {
             </button>
             <button
               className="btn btn-secondary"
-              onClick={() => moveToWishlist(product)}
+              onClick={() =>
+                moveToWishlist({
+                  product,
+                  userDispatch,
+                  wishlist: userState.userWishlist,
+                  token: authState.token,
+                })
+              }
             >
               Move to wishlist
             </button>
