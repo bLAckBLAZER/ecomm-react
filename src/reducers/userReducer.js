@@ -1,34 +1,31 @@
-import { updateCart } from "../utils/updateCart";
+import { incrementCartView } from "../utils/incrementCartView";
 import { checkAddedInCart } from "../utils/checkAddedInCart";
-import { decrementCart } from "../utils/decrementCart";
-import { removeFromCart } from "../utils/removeFromCart";
+import { decrementCartView } from "../utils/decrementCartView";
+import { removeFromCartView } from "../utils/removeFromCartView";
 import { userDefaultState } from "../contexts/userDefaultState";
 
 export const userReducer = (userState, { type, payload }) => {
   switch (type) {
     case "ADD_TO_CART":
-      const isAddedInCart = checkAddedInCart(userState.userCart, payload);
-
-      let updatedCart = [];
-      if (isAddedInCart) {
-        updatedCart = updateCart(userState.userCart, payload);
-      } else {
-        updatedCart = userState.userCart.concat({
-          ...payload,
-          qtyOrdered: 1,
-        });
-      }
-
       return {
         ...userState,
-        userCart: updatedCart,
+        userCart: userState.userCart.concat({
+          ...payload,
+          qtyOrdered: 1,
+        }),
       };
 
-    case "DECREMENT_FROM_CART":
+    case "INCREMENT_CART":
+      return {
+        ...userState,
+        userCart: incrementCartView(userState.userCart, payload),
+      };
+
+    case "DECREMENT_CART":
       const newCart =
         payload.qtyOrdered === 1
-          ? removeFromCart(userState.userCart, payload)
-          : decrementCart(userState.userCart, payload);
+          ? removeFromCartView(userState.userCart, payload)
+          : decrementCartView(userState.userCart, payload);
 
       return {
         ...userState,
@@ -38,7 +35,7 @@ export const userReducer = (userState, { type, payload }) => {
     case "REMOVE_FROM_CART":
       return {
         ...userState,
-        userCart: removeFromCart(userState.userCart, payload),
+        userCart: removeFromCartView(userState.userCart, payload),
       };
 
     case "ADD_TO_WISHLIST":
@@ -57,6 +54,9 @@ export const userReducer = (userState, { type, payload }) => {
 
     case "SET_WISHLIST":
       return { ...userState, userWishlist: payload };
+
+    case "SET_CART":
+      return { ...userState, userCart: payload };
 
     case "RESET":
       return userDefaultState;

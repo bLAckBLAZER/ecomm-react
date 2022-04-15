@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import {
   addToWishlist,
   removeFromWishlist,
+  addToCart,
 } from "../../utils/productFunctions";
 import { isPresentInList } from "../../utils/isPresentInList";
 
@@ -45,7 +46,12 @@ export const ProductCard = ({ product }) => {
               className="btn btn-primary"
               onClick={() =>
                 authState.token
-                  ? userDispatch({ type: "ADD_TO_CART", payload: product })
+                  ? addToCart({
+                      product,
+                      userState,
+                      userDispatch,
+                      token: authState.token,
+                    })
                   : navigate("/login")
               }
             >

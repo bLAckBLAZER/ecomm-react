@@ -78,3 +78,136 @@ export const getUserWishlist = async ({ token, userDispatch }) => {
     console.error(err);
   }
 };
+
+export const getUserCart = async ({ token, userDispatch }) => {
+  try {
+    const res = await axios.get("/api/user/cart", {
+      headers: {
+        authorization: token,
+      },
+    });
+
+    if (res.status === 200) {
+      userDispatch({ type: "SET_CART", payload: res.data.cart });
+    } else {
+      console.error("Unsuccessful get call on cart, res status:", res.status);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const addToCart = async ({
+  product,
+  userState,
+  userDispatch,
+  token,
+}) => {
+  try {
+    const isAddedInCart = isPresentInList(product._id, userState.userCart);
+
+    if (isAddedInCart) {
+      incrementCart({
+        product,
+        userDispatch,
+        token,
+      });
+    } else {
+      const res = await axios({
+        method: "post",
+        url: "/api/user/cart",
+        data: {
+          product,
+        },
+        headers: {
+          authorization: token,
+        },
+      });
+
+      if (res.status === 201) {
+        userDispatch({ type: "ADD_TO_CART", payload: product });
+      } else {
+        console.error("Add to cart call failed with status: ", res.status);
+      }
+    }
+  } catch (error) {
+    console.error("Add to cart call failed: ", error);
+  }
+};
+
+export const incrementCart = async ({ product, userDispatch, token }) => {
+  try {
+    const res = await axios({
+      method: "post",
+      url: `/api/user/cart/${product._id}`,
+      data: {
+        action: {
+          type: "increment",
+        },
+      },
+      headers: {
+        authorization: token,
+      },
+    });
+
+    if (res.status === 200) {
+      userDispatch({ type: "INCREMENT_CART", payload: product });
+    } else {
+      console.error("Increment to cart call failed with status: ", res.status);
+    }
+  } catch (error) {
+    console.error("Increment to cart call failed: ", error);
+  }
+};
+
+export const decrementCart = async ({ product, userDispatch, token }) => {
+  if (product.qtyOrdered === 1) {
+    removeFromCart({ product, userDispatch, token });
+  } else {
+    try {
+      const res = await axios({
+        method: "post",
+        url: `/api/user/cart/${product._id}`,
+        data: {
+          action: {
+            type: "decrement",
+          },
+        },
+        headers: {
+          authorization: token,
+        },
+      });
+
+      if (res.status === 200) {
+        userDispatch({ type: "DECREMENT_CART", payload: product });
+      } else {
+        console.error(
+          "decrement to cart call failed with status: ",
+          res.status
+        );
+      }
+    } catch (error) {
+      console.error("decrement to cart call failed: ", error);
+    }
+  }
+};
+
+export const removeFromCart = async ({ product, userDispatch, token }) => {
+  try {
+    const res = await axios({
+      method: "delete",
+      url: `/api/user/cart/${product._id}`,
+      headers: {
+        authorization: token,
+      },
+    });
+
+    if (res.status === 200) {
+      userDispatch({ type: "REMOVE_FROM_CART", payload: product });
+    } else {
+      console.error("Remove from cart call failed with status: ", res.status);
+    }
+  } catch (error) {
+    console.error("Remove from cart call failed: ", error);
+  }
+};

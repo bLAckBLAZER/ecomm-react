@@ -5,7 +5,7 @@ import { useUser } from "../../contexts/UserContext";
 import { useAuth } from "../../contexts/AuthContext";
 import { userLogout } from "../../utils/authenticate/authenticationCalls";
 import { useEffect } from "react";
-import { getUserWishlist } from "../../utils/productFunctions";
+import { getUserWishlist, getUserCart } from "../../utils/productFunctions";
 
 export const NavBar = () => {
   const { userState, userDispatch } = useUser();
@@ -18,6 +18,7 @@ export const NavBar = () => {
   useEffect(() => {
     if (authState.token) {
       getUserWishlist({ token: authState.token, userDispatch });
+      getUserCart({ token: authState.token, userDispatch });
     }
   }, []);
 

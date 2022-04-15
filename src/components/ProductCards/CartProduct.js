@@ -1,5 +1,10 @@
 import { useUser } from "../../contexts/UserContext";
-import { moveToWishlist } from "../../utils/productFunctions";
+import {
+  moveToWishlist,
+  incrementCart,
+  decrementCart,
+  removeFromCart,
+} from "../../utils/productFunctions";
 
 import { useAuth } from "../../contexts/AuthContext";
 
@@ -46,7 +51,11 @@ export const CartProduct = ({ product }) => {
             <i
               className="fas fa-minus qty-action"
               onClick={() =>
-                userDispatch({ type: "DECREMENT_FROM_CART", payload: product })
+                decrementCart({
+                  product,
+                  userDispatch,
+                  token: authState.token,
+                })
               }
             ></i>
 
@@ -56,7 +65,11 @@ export const CartProduct = ({ product }) => {
             <i
               className="fas fa-plus qty-action"
               onClick={() =>
-                userDispatch({ type: "ADD_TO_CART", payload: product })
+                incrementCart({
+                  product,
+                  userDispatch,
+                  token: authState.token,
+                })
               }
             ></i>
           </div>
@@ -67,7 +80,11 @@ export const CartProduct = ({ product }) => {
             <button
               className="btn btn-primary"
               onClick={() =>
-                userDispatch({ type: "REMOVE_FROM_CART", payload: product })
+                removeFromCart({
+                  product,
+                  userDispatch,
+                  token: authState.token,
+                })
               }
             >
               Remove from cart
