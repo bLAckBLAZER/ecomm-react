@@ -1,3 +1,16 @@
+.mob-aside {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 45%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 6;
+  color: var(--secondary-color);
+  background-color: var(--pure-white);
+}
+
 .mob-aside .side-bar-item {
   display: flex;
   gap: 1rem;
