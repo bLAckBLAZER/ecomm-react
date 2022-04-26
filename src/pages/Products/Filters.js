@@ -4,7 +4,7 @@ import axios from "axios";
 import { useProduct } from "../../contexts/ProductContext";
 import { productDefaultState } from "../../contexts/productDefaultStates";
 
-export const Filters = () => {
+export const Filters = ({ showFilters }) => {
   const { state, dispatch } = useProduct();
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -22,7 +22,7 @@ export const Filters = () => {
   }, []);
 
   return (
-    <aside className="filters">
+    <aside className={`filters ${showFilters ? "active" : ""}`}>
       <ul className="filter-list">
         {/* Clear all filters */}
         <li className="filter-item">
