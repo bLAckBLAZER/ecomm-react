@@ -50,4 +50,8 @@
   .navbar #hamburger {
     display: block;
   }
+
+  .nav-heading {
+    display: block;
+  }
 }
