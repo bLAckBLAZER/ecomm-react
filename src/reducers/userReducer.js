@@ -1,46 +1,30 @@
-import { removeFromWishlist } from "../utils/removeFromWishlist";
-import { addToWishlist } from "../utils/addToWishlist";
-import { updateCart } from "../utils/updateCart";
-import { checkAddedInCart } from "../utils/checkAddedInCart";
-import { decrementCart } from "../utils/decrementCart";
-import { removeFromCart } from "../utils/removeFromCart";
+import { incrementCartView } from "../utils/incrementCartView";
+import { decrementCartView } from "../utils/decrementCartView";
+import { removeFromCartView } from "../utils/removeFromCartView";
 import { userDefaultState } from "../contexts/userDefaultState";
 
 export const userReducer = (userState, { type, payload }) => {
   switch (type) {
-    case "UPDATE_WISHLIST":
-      const updatedWishlist = payload.itemInWishlist
-        ? removeFromWishlist(userState.userWishlist, payload.product)
-        : addToWishlist(userState.userWishlist, payload.product);
-
+    case "ADD_TO_CART":
       return {
         ...userState,
-        userWishlist: updatedWishlist,
-      };
-
-    case "ADD_TO_CART":
-      const isAddedInCart = checkAddedInCart(userState.userCart, payload);
-
-      let updatedCart = [];
-      if (isAddedInCart) {
-        updatedCart = updateCart(userState.userCart, payload);
-      } else {
-        updatedCart = userState.userCart.concat({
+        userCart: userState.userCart.concat({
           ...payload,
           qtyOrdered: 1,
-        });
-      }
-
-      return {
-        ...userState,
-        userCart: updatedCart,
+        }),
       };
 
-    case "DECREMENT_FROM_CART":
+    case "INCREMENT_CART":
+      return {
+        ...userState,
+        userCart: incrementCartView(userState.userCart, payload),
+      };
+
+    case "DECREMENT_CART":
       const newCart =
         payload.qtyOrdered === 1
-          ? removeFromCart(userState.userCart, payload)
-          : decrementCart(userState.userCart, payload);
+          ? removeFromCartView(userState.userCart, payload)
+          : decrementCartView(userState.userCart, payload);
 
       return {
         ...userState,
@@ -50,8 +34,28 @@ export const userReducer = (userState, { type, payload }) => {
     case "REMOVE_FROM_CART":
       return {
         ...userState,
-        userCart: removeFromCart(userState.userCart, payload),
+        userCart: removeFromCartView(userState.userCart, payload),
       };
+
+    case "ADD_TO_WISHLIST":
+      return {
+        ...userState,
+        userWishlist: userState.userWishlist.concat(payload),
+      };
+
+    case "REMOVE_FROM_WISHLIST":
+      return {
+        ...userState,
+        userWishlist: userState.userWishlist.filter(
+          (product) => product._id !== payload._id
+        ),
+      };
+
+    case "SET_WISHLIST":
+      return { ...userState, userWishlist: payload };
+
+    case "SET_CART":
+      return { ...userState, userCart: payload };
 
     case "RESET":
       return userDefaultState;

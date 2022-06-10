@@ -1,7 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../contexts/UserContext";
 import { useAuth } from "../../contexts/AuthContext";
-import { checkItemWishlist } from "../../utils/checkItemWishlist";
+import {
+  addToWishlist,
+  removeFromWishlist,
+  addToCart,
+} from "../../utils/productFunctions";
+import { isPresentInList } from "../../utils/isPresentInList";
 
 export const ProductCard = ({ product }) => {
   const { productImage, description, title, brand, price, inStock, rating } =
@@ -13,8 +18,7 @@ export const ProductCard = ({ product }) => {
 
   const { authState } = useAuth();
 
-  const itemInWishlist = checkItemWishlist(userWishlist, product);
-
+  const itemInWishlist = isPresentInList(product._id, userWishlist);
   const navigate = useNavigate();
 
   return (
@@ -42,7 +46,12 @@ export const ProductCard = ({ product }) => {
               className="btn btn-primary"
               onClick={() =>
                 authState.token
-                  ? userDispatch({ type: "ADD_TO_CART", payload: product })
+                  ? addToCart({
+                      product,
+                      userState,
+                      userDispatch,
+                      token: authState.token,
+                    })
                   : navigate("/login")
               }
             >
@@ -55,11 +64,19 @@ export const ProductCard = ({ product }) => {
               className={`${itemInWishlist ? "fas" : "far"} fa-heart`}
               aria-hidden="true"
               onClick={() =>
-                authState.token ?
-                userDispatch({
-                  type: "UPDATE_WISHLIST",
-                  payload: { product, itemInWishlist },
-                }) : navigate("/login")
+                authState.token
+                  ? itemInWishlist
+                    ? removeFromWishlist({
+                        product,
+                        userDispatch,
+                        token: authState.token,
+                      })
+                    : addToWishlist({
+                        product,
+                        userDispatch,
+                        token: authState.token,
+                      })
+                  : navigate("/login")
               }
             ></i>
             <i className="fas fa-share-alt" aria-hidden="true"></i>

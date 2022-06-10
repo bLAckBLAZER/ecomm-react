@@ -3,9 +3,9 @@ import "./Authentication.css";
 
 export const Logout = () => {
   return (
-    <div class="logout">
+    <div className="logout">
       <p>You have successfully logged out!</p>
-      <Link to="/" class="btn btn-primary">
+      <Link to="/" className="btn btn-primary">
         Homepage
       </Link>
     </div>
