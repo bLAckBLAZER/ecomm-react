@@ -42,21 +42,30 @@ export const ProductCard = ({ product }) => {
         </div>
         <div className="card-footer">
           <div className="card-actions">
-            <button
-              className="btn btn-primary"
-              onClick={() =>
-                authState.token
-                  ? addToCart({
-                      product,
-                      userState,
-                      userDispatch,
-                      token: authState.token,
-                    })
-                  : navigate("/login")
-              }
-            >
-              Add to cart
-            </button>
+            {isPresentInList(product._id, userState.userCart) ? (
+              <button
+                className="btn btn-secondary"
+                onClick={() => navigate("/cart")}
+              >
+                Go to Cart
+              </button>
+            ) : (
+              <button
+                className="btn btn-primary"
+                onClick={() =>
+                  authState.token
+                    ? addToCart({
+                        product,
+                        userState,
+                        userDispatch,
+                        token: authState.token,
+                      })
+                    : navigate("/login")
+                }
+              >
+                Add to cart
+              </button>
+            )}
           </div>
 
           <div className="card-icons">
