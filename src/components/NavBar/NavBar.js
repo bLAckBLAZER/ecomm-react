@@ -4,15 +4,25 @@ import Logo from "../../assets/images/logo.png";
 import { useUser } from "../../contexts/UserContext";
 import { useAuth } from "../../contexts/AuthContext";
 import { userLogout } from "../../utils/authenticate/authenticationCalls";
-import { PrivateRoute } from "../PrivateRoute/PrivateRoute";
+import { useEffect, useState } from "react";
+import { getUserWishlist, getUserCart } from "../../utils/productFunctions";
+import { Input, Hamburger } from "../../components";
+import { SideBar } from "./SideBar";
 
 export const NavBar = () => {
   const { userState, userDispatch } = useUser();
   const { authState, dispatchAuth } = useAuth();
-
   const { userCart, userWishlist } = userState;
+  const [showSideBar, setShowSideBar] = useState(false);
 
   const itemsInCart = userCart.reduce((acc, curr) => acc + curr.qtyOrdered, 0);
+
+  useEffect(() => {
+    if (authState.token) {
+      getUserWishlist({ token: authState.token, userDispatch });
+      getUserCart({ token: authState.token, userDispatch });
+    }
+  }, []);
 
   return (
     <nav className="navbar fixed">
@@ -26,11 +36,7 @@ export const NavBar = () => {
           </div>
         </div>
       </Link>
-      <input
-        type="text"
-        className="input"
-        placeholder="What do you want to wear today?"
-      />
+      <Input id="search-bar" placeholder="What do you want to wear today?" />
       <ul className="nav-actions">
         <li className="nav-action-item">
           {authState.token ? (
@@ -48,26 +54,45 @@ export const NavBar = () => {
             </Link>
           )}
         </li>
+
+        <li className="nav-action-item">
           <Link to="/cart">
-            <li className="nav-action-item">
-              <div className="badge-container">
-                <i
-                  className="fas fa-shopping-cart fa-2x"
-                  aria-hidden="true"
-                ></i>
+            <div className="badge-container">
+              <i className="fas fa-shopping-cart fa-2x" aria-hidden="true"></i>
+              {authState.token && itemsInCart > 0 && (
                 <span className="badge badge-icon">{itemsInCart}</span>
-              </div>
-            </li>
+              )}
+            </div>
           </Link>
+        </li>
+        <li className="nav-action-item">
           <Link to="/wishlist">
-            <li className="nav-action-item">
-              <div className="badge-container">
-                <i className="far fa-heart fa-2x"></i>
+            <div className="badge-container">
+              <i className="far fa-heart fa-2x"></i>
+              {authState.token && userWishlist.length > 0 && (
                 <span className="badge badge-icon">{userWishlist.length}</span>
-              </div>
-            </li>
+              )}
+            </div>
           </Link>
+        </li>
+        <li
+          className="nav-action-item"
+          onClick={() => setShowSideBar(!showSideBar)}
+        >
+          <Hamburger />
+        </li>
       </ul>
+      {showSideBar && (
+        <SideBar
+          setShowSideBar={setShowSideBar}
+          userLogout={userLogout}
+          dispatchAuth={dispatchAuth}
+          userDispatch={userDispatch}
+          authState={authState}
+          itemsInCart={itemsInCart}
+          userWishlist={userWishlist}
+        />
+      )}
     </nav>
   );
 };

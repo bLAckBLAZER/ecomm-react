@@ -1,7 +1,9 @@
 import { NavBar, Footer, ShadowBox } from "../../components";
 import { useReducer } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setUserDetailsReducer } from "../../reducers/setUserDetailsReducer";
+import { userSignup } from "../../utils/authenticate/authenticationCalls";
+import { useAuth } from "../../contexts/AuthContext";
 
 export const Signup = () => {
   const [userDetails, dispatchUserDetails] = useReducer(setUserDetailsReducer, {
@@ -22,13 +24,18 @@ export const Signup = () => {
     showPassword,
   } = userDetails;
 
+  const { authState, dispatchAuth } = useAuth();
+  const navigate = useNavigate();
+
   return (
     <div className="wrapper justify-between">
       <NavBar />
 
       <main>
         <ShadowBox className="mg-y-auto">
-          <form>
+          <form
+            onSubmit={(e) => userSignup(e, userDetails, dispatchAuth, navigate)}
+          >
             <div className="h2 txt-center">Signup</div>
             <div className="width-100">
               <label className="input-label">

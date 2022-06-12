@@ -9,8 +9,18 @@
   font-weight: var(--weight-light);
 }
 
+.product {
+  display: flex;
+  justify-content: center;
+}
+
 .card {
   max-height: 100%;
+}
+
+.card .card-img {
+  height: 208px;
+  width: 208px;
 }
 
 .grid-5-col {
@@ -46,6 +56,19 @@
   font-size: 0.8rem;
 }
 
+#filter-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: var(--primary-color);
+  display: none;
+  z-index: 5;
+}
+
+.filters.active {
+  display: flex;
+}
+
 @media screen and (max-width: 1375px) {
   .grid-5-col {
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -62,5 +85,15 @@
 @media screen and (max-width: 880px) {
   .grid-5-col {
     grid-template-columns: 1fr 1fr;
+  }
+
+  #filter-toggle {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .grid-5-col {
+    grid-template-columns: 1fr;
   }
 }

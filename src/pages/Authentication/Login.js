@@ -75,7 +75,12 @@ export const Login = () => {
             </div>
             <div className="auth-actions">
               <div className="flex-1">
-                <button className="btn btn-primary" type="submit">
+                <button
+                  className="btn btn-primary"
+                  onClick={(e) =>
+                    userLogin(e, dispatchAuth, email, password, navigate)
+                  }
+                >
                   Login
                 </button>
               </div>
@@ -96,9 +101,9 @@ export const Login = () => {
             <div className="flex-1">
               <button
                 className="btn btn-secondary"
-                onClick={() =>
+                onClick={(e) =>
                   userLogin(
-                    authState,
+                    e,
                     dispatchAuth,
                     testData.email,
                     testData.password,

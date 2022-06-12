@@ -1,7 +1,7 @@
 .navbar {
   background-color: var(--pure-white);
-  justify-content: space-around;
-  padding: 0;
+  justify-content: space-between;
+  padding: 0 1rem;
   margin-bottom: 0.5rem;
 }
 
@@ -20,8 +20,38 @@
   font-size: 0.75rem;
 }
 
-.navbar .input {
-  align-self: center;
+.navbar .input-wrapper {
   width: 30%;
+  align-self: center;
+}
+
+.navbar .input-container {
   border-radius: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar #search-bar {
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+    background-color: var(--pure-white);
+  }
+
+  main {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar .nav-action-item:not(:last-child) {
+    display: none;
+  }
+  .navbar #hamburger {
+    display: block;
+  }
+
+  .nav-heading {
+    display: block;
+  }
 }
