@@ -1,5 +1,6 @@
 import axios from "axios";
 import { removeLocalStorage, setLocalStorage } from "../localStorageCalls";
+import toast from "react-hot-toast";
 
 export const userLogin = async (event, dispatch, email, password, navigate) => {
   event.preventDefault();
@@ -19,8 +20,14 @@ export const userLogin = async (event, dispatch, email, password, navigate) => {
       setLocalStorage("user", foundUser, true);
 
       navigate("/products");
+      toast.success("Login successful!", {
+        position: "bottom-center",
+      });
     }
   } catch {
+    toast.error("Oops! Login failed. Please check your credentials!", {
+      position: "bottom-center",
+    });
     throw new Error("Error in loggin in!");
   }
 };
@@ -32,7 +39,13 @@ export const userLogout = (dispatchAuth, userDispatch) => {
 
     dispatchAuth({ type: "LOGOUT" });
     userDispatch({ type: "RESET" });
+    toast.success("Logout successful!", {
+      position: "bottom-center",
+    });
   } catch {
+    toast.error("Oops! Logout failed. Please try again!", {
+      position: "bottom-center",
+    });
     throw new Error("Logout failed");
   }
 };
@@ -62,8 +75,14 @@ export const userSignup = async (
       setLocalStorage("user", foundUser, true);
 
       navigate("/products");
+      toast.success("Signup successful!", {
+        position: "bottom-center",
+      });
     }
   } catch (err) {
+    toast.error("Oops! Signup failed. Please check the details entered!", {
+      position: "bottom-center",
+    });
     console.error(err);
   }
 };
