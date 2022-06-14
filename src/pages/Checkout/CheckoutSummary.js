@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const CartSummary = ({ userCart }) => {
+export const CheckoutSummary = ({ userCart, selectedAddress }) => {
   const calculateTotals = (acc, curr) => {
     return {
       ...acc,
@@ -30,6 +30,8 @@ export const CartSummary = ({ userCart }) => {
 
   const totalCartPrice = totalSellingPrice + totalDeliveryCharges;
 
+  const { id, name, address, city, pincode, state } = selectedAddress || {};
+
   return (
     <div className="cart-pricing">
       <div className="price-heading">Price Details</div>
@@ -55,10 +57,19 @@ export const CartSummary = ({ userCart }) => {
       </div>
       <hr />
       <div className="price-subheading">{`You will save ₹ ${totalDiscount} on this order!`}</div>
+      <div className="price-heading">Deliver to</div>
+      <hr />
+      {selectedAddress && (
+        <div>
+          <div className="h3">{name}</div>
+          <div>{address?.line1}</div>
+          <div>{address?.line2}</div>
+          <div>{address?.line3}</div>
+          <div>{`${city}, ${pincode}, ${state}`}</div>
+        </div>
+      )}
 
-      <Link to="/checkout">
-        <button className="btn btn-primary">Checkout</button>
-      </Link>
+      <button className="btn btn-primary mg-y-1">Make Payment</button>
     </div>
   );
 };

@@ -1,0 +1,17 @@
+.address-card {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--primary-color);
+  align-items: center;
+}
+
+.address-card input:hover {
+  cursor: pointer;
+}
+
+.cart-container #add-address {
+  max-width: fit-content;
+  align-self: flex-end;
+}
