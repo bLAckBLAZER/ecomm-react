@@ -13,6 +13,7 @@ import {
 import { Footer, NavBar } from "./components";
 
 import { PageNotFound, PrivateRoute } from "./components";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
@@ -62,6 +63,7 @@ does not exist.
         />
       </Routes>
       <Footer />
+      <Toaster />
     </div>
   );
 };

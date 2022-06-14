@@ -1,5 +1,6 @@
 import axios from "axios";
 import { isPresentInList } from "./isPresentInList";
+import toast from "react-hot-toast";
 
 export const addToWishlist = async ({ product, userDispatch, token }) => {
   try {
@@ -16,7 +17,13 @@ export const addToWishlist = async ({ product, userDispatch, token }) => {
 
     if (res.status === 201) {
       userDispatch({ type: "ADD_TO_WISHLIST", payload: product });
+      toast.success("Item added to wishlist!", {
+        position: "bottom-center",
+      });
     } else {
+      toast.error("Item not added to wishlist. Please try again!", {
+        position: "bottom-center",
+      });
       console.error("Add to wishlist call failed with status: ", res.status);
     }
   } catch (error) {
@@ -36,13 +43,22 @@ export const removeFromWishlist = async ({ product, userDispatch, token }) => {
 
     if (res.status === 200 || res.status === 201) {
       userDispatch({ type: "REMOVE_FROM_WISHLIST", payload: product });
+      toast.success("Item removed from wishlist!", {
+        position: "bottom-center",
+      });
     } else {
+      toast.error("Item not removed from wishlist. Please try again!", {
+        position: "bottom-center",
+      });
       console.error(
         "Remove from wishlist call failed with status: ",
         res.status
       );
     }
   } catch (error) {
+    toast.error("Item not removed from wishlist. Please try again!", {
+      position: "bottom-center",
+    });
     console.error("Remove from wishlist call failed: ", error);
   }
 };
@@ -56,6 +72,9 @@ export const moveToWishlist = ({ product, wishlist, userDispatch, token }) => {
     });
   }
   userDispatch({ type: "REMOVE_FROM_CART", payload: product });
+  toast.success("Item moved to wishlist!", {
+    position: "bottom-center",
+  });
 };
 
 export const getUserWishlist = async ({ token, userDispatch }) => {
@@ -126,11 +145,20 @@ export const addToCart = async ({
 
       if (res.status === 201) {
         userDispatch({ type: "ADD_TO_CART", payload: product });
+        toast.success("Item added to cart!", {
+          position: "bottom-center",
+        });
       } else {
+        toast.error("Add to cart failed. Please try again!", {
+          position: "bottom-center",
+        });
         console.error("Add to cart call failed with status: ", res.status);
       }
     }
   } catch (error) {
+    toast.error("Add to cart failed. Please try again!", {
+      position: "bottom-center",
+    });
     console.error("Add to cart call failed: ", error);
   }
 };
@@ -204,10 +232,19 @@ export const removeFromCart = async ({ product, userDispatch, token }) => {
 
     if (res.status === 200) {
       userDispatch({ type: "REMOVE_FROM_CART", payload: product });
+      toast.success("Item removed from cart!", {
+        position: "bottom-center",
+      });
     } else {
+      toast.error("Remove from cart failed. Please try again!", {
+        position: "bottom-center",
+      });
       console.error("Remove from cart call failed with status: ", res.status);
     }
   } catch (error) {
+    toast.error("Remove from cart failed. Please try again!", {
+      position: "bottom-center",
+    });
     console.error("Remove from cart call failed: ", error);
   }
 };
