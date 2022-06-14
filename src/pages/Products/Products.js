@@ -10,11 +10,11 @@ export const Products = () => {
       <Filters showFilters={showFilters} />
       <ProductList />
       <button
-        class="btn btn-float card-shadow"
+        className="btn btn-float card-shadow"
         id="filter-toggle"
         onClick={() => setShowFilters(!showFilters)}
       >
-        <i class="fas fa-filter"></i>
+        <i className="fas fa-filter"></i>
       </button>
     </main>
   );

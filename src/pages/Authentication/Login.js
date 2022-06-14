@@ -21,7 +21,11 @@ export const Login = () => {
   return (
     <main>
       <ShadowBox className="mg-y-auto">
-        <form>
+        <form
+          onSubmit={(e) =>
+            userLogin(e, dispatchAuth, email, password, navigate)
+          }
+        >
           <div className="h2 txt-center">Login</div>
           <div className="width-100">
             <label className="input-label">
@@ -70,12 +74,7 @@ export const Login = () => {
           </div>
           <div className="auth-actions">
             <div className="flex-1">
-              <button
-                className="btn btn-primary"
-                onClick={(e) =>
-                  userLogin(e, dispatchAuth, email, password, navigate)
-                }
-              >
+              <button className="btn btn-primary" type="submit">
                 Login
               </button>
             </div>

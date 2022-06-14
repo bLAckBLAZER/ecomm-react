@@ -57,6 +57,23 @@ export const userReducer = (userState, { type, payload }) => {
     case "SET_CART":
       return { ...userState, userCart: payload };
 
+    case "ADD_ADDRESS":
+      return {
+        ...userState,
+        userAddresses: userState.userAddresses.concat(payload),
+      };
+
+    case "UPDATE_ADDRESS":
+      const temp = userState.userAddresses.filter(
+        (address) => address.id !== payload.id
+      );
+      const updatedAddresses = temp.concat(payload);
+
+      return {
+        ...userState,
+        userAddresses: updatedAddresses,
+      };
+
     case "RESET":
       return userDefaultState;
 

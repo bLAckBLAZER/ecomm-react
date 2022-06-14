@@ -22,7 +22,7 @@ export const NavBar = () => {
       getUserWishlist({ token: authState.token, userDispatch });
       getUserCart({ token: authState.token, userDispatch });
     }
-  }, []);
+  }, [authState]);
 
   return (
     <nav className="navbar fixed">

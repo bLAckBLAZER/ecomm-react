@@ -14,14 +14,21 @@
   border-color: var(--primary-color);
 }
 
-.input-container input {
+.input-container input,
+.input-container select {
   flex: 1;
 }
 
 .input-container input[type="text"],
 .input-container input[type="password"],
-.input-container input[type="email"] {
+.input-container input[type="email"],
+.input-container input[type="number"],
+.input-container select {
   border: none;
   margin: 0;
   padding: 0;
+}
+
+.input-container select {
+  outline: none;
 }
