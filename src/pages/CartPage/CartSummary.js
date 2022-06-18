@@ -56,7 +56,16 @@ export const CartSummary = ({ userCart }) => {
       <hr />
       <div className="price-subheading">{`You will save ₹ ${totalDiscount} on this order!`}</div>
 
-      <Link to="/checkout">
+      <Link
+        to="/checkout"
+        state={{
+          totalItems,
+          totalOriginalPrice,
+          totalDiscount,
+          totalDeliveryCharges,
+          totalCartPrice,
+        }}
+      >
         <button className="btn btn-primary">Checkout</button>
       </Link>
     </div>

@@ -16,6 +16,18 @@ export const NewAddress = ({
 
   const { name, address, city, state, pincode } = addressDetails;
 
+  const testAddressDetails = {
+    name: "Naruto Uzumaki",
+    address: {
+      line1: "Hokage Office",
+      line2: "Opp. Ichiraku Ramen Shop",
+      line3: "Konoha",
+    },
+    city: "Konoha",
+    state: "Maharashtra",
+    pincode: 121121,
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
@@ -192,6 +204,16 @@ export const NewAddress = ({
               Add
             </button>
           )}
+          <button
+            className="btn btn-success"
+            id="btn-yes"
+            onClick={(e) => {
+              e.preventDefault();
+              setAddressDetails(testAddressDetails);
+            }}
+          >
+            Test Address
+          </button>
         </div>
       </form>
     </div>

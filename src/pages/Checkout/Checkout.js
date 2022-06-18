@@ -4,11 +4,14 @@ import { AddressCard } from "./AddressCard";
 import { CheckoutSummary } from "./CheckoutSummary";
 import { NewAddress } from "../../components";
 import { defaultNewAddress } from "./defaultNewAddress";
+import { useLocation } from "react-router-dom";
 
 export const Checkout = () => {
   const {
     userState: { userAddresses, userCart },
   } = useUser();
+
+  const { state: priceSummary } = useLocation();
 
   const [selectedAddress, setSelectedAddress] = useState(userAddresses[0]);
   const [showModal, setShowModal] = useState(false);
@@ -56,6 +59,7 @@ export const Checkout = () => {
           <CheckoutSummary
             userCart={userCart}
             selectedAddress={selectedAddress}
+            priceSummary={priceSummary}
           />
         </div>
       </div>

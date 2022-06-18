@@ -36,7 +36,7 @@ export const NavBar = () => {
           </div>
         </div>
       </Link>
-      <Input id="search-bar" placeholder="What do you want to wear today?" />
+      {/* <Input id="search-bar" placeholder="What do you want to wear today?" /> */}
       <ul className="nav-actions">
         <li className="nav-action-item">
           {authState.token ? (

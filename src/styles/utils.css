@@ -130,3 +130,8 @@
   width: 100%;
   z-index: 6;
 }
+
+.disabled {
+  cursor: not-allowed;
+  background-color: var(--inactive-color);
+}

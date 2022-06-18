@@ -9,6 +9,7 @@ import {
   Signup,
   Logout,
   Checkout,
+  OrderComplete,
 } from "./pages";
 import { Footer, NavBar } from "./components";
 
@@ -46,6 +47,14 @@ const App = () => {
           element={
             <PrivateRoute>
               <Checkout />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/orderComplete"
+          element={
+            <PrivateRoute>
+              <OrderComplete />
             </PrivateRoute>
           }
         />

@@ -27,6 +27,9 @@ export const addToWishlist = async ({ product, userDispatch, token }) => {
       console.error("Add to wishlist call failed with status: ", res.status);
     }
   } catch (error) {
+    toast.error("Item not added to wishlist. Please try again!", {
+      position: "bottom-center",
+    });
     console.error("Add to wishlist call failed: ", error);
   }
 };
