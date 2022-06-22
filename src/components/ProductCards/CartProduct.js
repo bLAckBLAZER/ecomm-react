@@ -19,11 +19,15 @@ export const CartProduct = ({ product }) => {
     inStock,
     rating,
     qtyOrdered,
+    category,
   } = product;
 
   const { userState, userDispatch } = useUser();
 
   const { authState } = useAuth();
+  const discountPercent = Math.round(
+    ((originalPrice - price) / originalPrice) * 100
+  );
 
   return (
     <div className="card card-ecom card-horizontal card-shadow">
@@ -34,12 +38,13 @@ export const CartProduct = ({ product }) => {
       <div className="card-info">
         <div className="card-heading">
           <h2 className="card-title">{title}</h2>
-          <h4 className="card-subtitle">{brand}</h4>
+          <h4 className="card-subtitle">{`${brand} ${category}`}</h4>
         </div>
 
         <div className="card-price flex align-ctr">
-          <div className="h3">{`₹ ${price}/-`}</div>
-          <div className="txt-strike">{`₹ ${originalPrice}/-`}</div>
+          <strong className="h3">{`₹ ${price}/-`}</strong>
+          <small className="txt-strike">{`₹ ${originalPrice}/-`}</small>
+          <small className="discount-percent">{`(${discountPercent}% OFF)`}</small>
         </div>
 
         <p className="card-text">{description}</p>

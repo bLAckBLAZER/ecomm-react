@@ -18,6 +18,7 @@ export const ProductCard = ({ product }) => {
     inStock,
     rating,
     category,
+    originalPrice,
   } = product;
 
   const { userState, userDispatch } = useUser();
@@ -28,6 +29,10 @@ export const ProductCard = ({ product }) => {
 
   const itemInWishlist = isPresentInList(product._id, userWishlist);
   const navigate = useNavigate();
+
+  const discountPercent = Math.round(
+    ((originalPrice - price) / originalPrice) * 100
+  );
 
   return (
     <div className="product">
@@ -46,7 +51,11 @@ export const ProductCard = ({ product }) => {
             <h2 className="card-title">{title}</h2>
             <h4 className="card-subtitle">{`${brand} ${category}`}</h4>
           </div>
-          <p className="card-text">{`₹ ${price}/-`}</p>
+          <div className="cart-prices flex align-ctr">
+            <strong>{`₹ ${price}/-`}</strong>
+            <small className="txt-strike">{`₹ ${originalPrice}/-`}</small>
+            <small className="discount-percent">{`(${discountPercent}% OFF)`}</small>
+          </div>
         </div>
         <div className="card-footer">
           <div className="card-actions">

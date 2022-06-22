@@ -18,6 +18,20 @@
   max-height: 100%;
 }
 
+.product .card .cart-prices {
+  padding: 0.5rem 1rem 0 1rem;
+  font-size: 0.875rem;
+}
+
+.product .card .cart-prices small {
+  margin-left: 5px;
+  color: var(--grey);
+}
+
+.product .card .cart-prices .discount-percent {
+  color: red;
+}
+
 .card .card-img {
   height: 208px;
   width: 208px;
@@ -45,6 +59,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--text-color);
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .card-ecom .rating {

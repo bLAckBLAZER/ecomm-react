@@ -135,3 +135,7 @@
   cursor: not-allowed;
   background-color: var(--inactive-color);
 }
+
+.gap-half {
+  gap: 0.5rem;
+}
