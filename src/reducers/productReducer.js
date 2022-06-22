@@ -1,4 +1,4 @@
-import { removeCategory } from "../utils/removeCategory";
+import { removeCategory } from "../utils/helperFunctions";
 
 export const productReducer = (state, action) => {
   const { type, payload } = action;

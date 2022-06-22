@@ -1,5 +1,5 @@
 import axios from "axios";
-import { isPresentInList } from "./isPresentInList";
+import { isPresentInList } from "./helperFunctions";
 import toast from "react-hot-toast";
 
 export const addToWishlist = async ({ product, userDispatch, token }) => {

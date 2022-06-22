@@ -37,3 +37,7 @@ i:hover {
 .btn {
   max-width: 100%;
 }
+
+a.btn {
+  text-decoration: none;
+}

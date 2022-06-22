@@ -3,8 +3,11 @@ import { useUser } from "../../contexts/UserContext";
 import { CartSummary } from "./CartSummary";
 import { Link } from "react-router-dom";
 import "./CartPage.css";
+import { useTopScroll } from "../../utils/hooks";
 export const CartPage = () => {
   const { userState, userDispatch } = useUser();
+
+  useTopScroll();
 
   return (
     <main className="flex-1">

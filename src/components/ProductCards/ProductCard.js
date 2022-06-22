@@ -6,11 +6,19 @@ import {
   removeFromWishlist,
   addToCart,
 } from "../../utils/productFunctions";
-import { isPresentInList } from "../../utils/isPresentInList";
+import { isPresentInList } from "../../utils/helperFunctions";
 
 export const ProductCard = ({ product }) => {
-  const { productImage, description, title, brand, price, inStock, rating } =
-    product;
+  const {
+    productImage,
+    description,
+    title,
+    brand,
+    price,
+    inStock,
+    rating,
+    category,
+  } = product;
 
   const { userState, userDispatch } = useUser();
 
@@ -36,7 +44,7 @@ export const ProductCard = ({ product }) => {
           <div className="badge rating">{rating} ⭐</div>
           <div className="card-heading">
             <h2 className="card-title">{title}</h2>
-            <h4 className="card-subtitle">{brand}</h4>
+            <h4 className="card-subtitle">{`${brand} ${category}`}</h4>
           </div>
           <p className="card-text">{`₹ ${price}/-`}</p>
         </div>
@@ -88,7 +96,7 @@ export const ProductCard = ({ product }) => {
                   : navigate("/login")
               }
             ></i>
-            <i className="fas fa-share-alt" aria-hidden="true"></i>
+            {/* <i className="fas fa-share-alt" aria-hidden="true"></i> */}
           </div>
         </div>
       </div>

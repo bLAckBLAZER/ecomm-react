@@ -45,8 +45,10 @@ export const ProductList = () => {
   return (
     <div className="flex flex-col flex-1 product-list">
       <div className="product-heading">
-        Showing all products
-        <span className="product-subheading">(20 products per page)</span>
+        {filteredProducts.length === productList.length
+          ? "Showing all products"
+          : "Showing filtered products"}
+        <span className="product-subheading">{` (${filteredProducts.length} products)`}</span>
       </div>
       <div className="grid-5-col">
         {filteredProducts.map((product) => (

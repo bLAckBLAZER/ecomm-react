@@ -1,9 +1,12 @@
 import { useUser } from "../../contexts/UserContext";
 import { Link } from "react-router-dom";
 import { Footer, NavBar, ProductCard } from "../../components";
+import { useTopScroll } from "../../utils/hooks";
 
 export const Wishlist = () => {
   const { userState, userDispatch } = useUser();
+
+  useTopScroll();
 
   return (
     <main className="flex-1">

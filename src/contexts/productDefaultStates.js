@@ -4,5 +4,5 @@ export const productDefaultState = {
   selectedBrands: [],
   selectedRating: 1,
   sortByPrice: "LOW_TO_HIGH",
-  includeOutOfStock: false,
+  includeOutOfStock: true,
 };

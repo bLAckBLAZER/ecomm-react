@@ -1,6 +1,8 @@
-import { incrementCartView } from "../utils/incrementCartView";
-import { decrementCartView } from "../utils/decrementCartView";
-import { removeFromCartView } from "../utils/removeFromCartView";
+import {
+  incrementCartView,
+  decrementCartView,
+  removeFromCartView,
+} from "../utils/helperFunctions";
 import { userDefaultState } from "../contexts/userDefaultState";
 
 export const userReducer = (userState, { type, payload }) => {

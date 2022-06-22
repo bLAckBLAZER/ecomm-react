@@ -92,7 +92,7 @@
 .cart-pricing .btn {
   width: 100%;
   max-width: 100%;
-  margin: 0;
+  margin: 1rem 0;
 }
 
 .cart-items i {

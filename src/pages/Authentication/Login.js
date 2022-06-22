@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { userLogin } from "../../utils/authenticate/authenticationCalls";
+import { useTopScroll } from "../../utils/hooks";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,6 +18,8 @@ export const Login = () => {
     email: "adarshbalika@gmail.com",
     password: "adarshbalika",
   };
+
+  useTopScroll();
 
   return (
     <main>

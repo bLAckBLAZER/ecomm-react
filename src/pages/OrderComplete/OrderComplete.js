@@ -1,11 +1,11 @@
 import { useLocation, Link } from "react-router-dom";
+import { useTopScroll } from "../../utils/hooks";
 
 export const OrderComplete = () => {
   const {
     state: { orderDetails },
   } = useLocation();
 
-  //   console.log("state in OrderCOmplete: ", state);
   const { id, name, address, city, pincode, state } =
     orderDetails.deliveryAddress;
   const {
@@ -15,6 +15,8 @@ export const OrderComplete = () => {
     totalDeliveryCharges,
     totalCartPrice,
   } = orderDetails.priceSummary;
+
+  useTopScroll();
 
   return (
     <main className="flex-1">

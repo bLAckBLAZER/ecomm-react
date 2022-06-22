@@ -5,6 +5,7 @@ import { CheckoutSummary } from "./CheckoutSummary";
 import { NewAddress } from "../../components";
 import { defaultNewAddress } from "./defaultNewAddress";
 import { useLocation } from "react-router-dom";
+import { useTopScroll } from "../../utils/hooks";
 
 export const Checkout = () => {
   const {
@@ -16,6 +17,8 @@ export const Checkout = () => {
   const [selectedAddress, setSelectedAddress] = useState(userAddresses[0]);
   const [showModal, setShowModal] = useState(false);
   const [addressDetails, setAddressDetails] = useState(defaultNewAddress);
+
+  useTopScroll();
 
   return (
     <main className="flex-1">

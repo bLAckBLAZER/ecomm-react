@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useProduct } from "../../contexts/ProductContext";
+import { productDefaultState } from "../../contexts/productDefaultStates";
 
 export const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -24,6 +25,7 @@ export const Categories = () => {
   }, []);
 
   const onCategoryClick = (categoryName) => {
+    dispatch({ type: "RESET", payload: productDefaultState });
     dispatch({
       type: "CATEGORY_CHANGE",
       payload: categoryName.toLowerCase(),

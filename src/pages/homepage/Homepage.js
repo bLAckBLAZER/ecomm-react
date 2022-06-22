@@ -2,8 +2,10 @@ import "./Homepage.css";
 import { HeroSection } from "./HeroSection";
 import { Categories } from "./Categories";
 import { Brands } from "./Brands";
+import { useTopScroll } from "../../utils/hooks";
 
 export const Homepage = () => {
+  useTopScroll();
   return (
     <main>
       <HeroSection />

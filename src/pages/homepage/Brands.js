@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useProduct } from "../../contexts/ProductContext";
+import { productDefaultState } from "../../contexts/productDefaultStates";
 
 export const Brands = () => {
   const navigate = useNavigate();
@@ -7,6 +8,7 @@ export const Brands = () => {
   const { state, dispatch } = useProduct();
 
   const onBrandClick = (brandName) => {
+    dispatch({ type: "RESET", payload: productDefaultState });
     dispatch({ type: "BRAND_CHANGE", payload: brandName });
     navigate("/products");
   };
