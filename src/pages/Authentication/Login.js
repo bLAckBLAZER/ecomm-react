@@ -64,7 +64,7 @@ export const Login = () => {
               </div>
             </label>
           </div>
-          <div className="auth-actions">
+          {/* <div className="auth-actions">
             <div className="flex-1">
               <label>
                 <input type="checkbox" id="remember-me" />
@@ -74,7 +74,7 @@ export const Login = () => {
             <div className="flex-1">
               <Link to="/signup">Forgot your password?</Link>
             </div>
-          </div>
+          </div> */}
           <div className="auth-actions">
             <div className="flex-1">
               <button className="btn btn-primary" type="submit">
