@@ -15,9 +15,9 @@
   overflow-y: scroll;
 }
 
-.filter-list::-webkit-scrollbar {
+/* .filter-list::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .filter-heading {
   font-size: 1.25rem;
@@ -34,8 +34,14 @@
   margin: 1.5rem 0;
 }
 
+
+
 .filter-item li {
   margin: 0.5rem 0;
+}
+
+.filter-item label:hover {
+  cursor: pointer;
 }
 
 .filter-item #slider {

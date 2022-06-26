@@ -1,6 +1,7 @@
 .hero-container {
   display: flex;
-  background-image: url(../../assets/images/sneakers-bg-dark.webp);
+  background-image: url(../../assets/images/sneakers-bg-new.jpg);
+  background-size: cover;
   height: 80vh;
   align-items: stretch;
   margin-bottom: 0.5rem;

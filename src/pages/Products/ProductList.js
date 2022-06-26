@@ -50,6 +50,7 @@ export const ProductList = () => {
           : "Showing filtered products"}
         <span className="product-subheading">{` (${filteredProducts.length} products)`}</span>
       </div>
+      {filteredProducts.length === 0 && <div className="h3 flex-1 flex align-ctr justify-ctr">No products found!</div>}
       <div className="grid-5-col">
         {filteredProducts.map((product) => (
           <ProductCard product={product} key={product._id} />
