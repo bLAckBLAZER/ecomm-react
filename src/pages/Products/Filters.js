@@ -48,7 +48,7 @@ export const Filters = ({ showFilters }) => {
               id="price-range"
               name="price-range"
               min="0"
-              max="50000"
+              max="20000"
               step="1000"
               value={state.maxRange}
               onChange={(e) =>

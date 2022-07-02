@@ -1,5 +1,5 @@
 export const productDefaultState = {
-  maxRange: 50000,
+  maxRange: 20000,
   selectedCategories: [],
   selectedBrands: [],
   selectedRating: 1,
