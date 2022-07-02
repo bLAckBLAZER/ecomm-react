@@ -32,13 +32,18 @@ export const CartProduct = ({ product }) => {
   return (
     <div className="card card-ecom card-horizontal card-shadow">
       <div className="card-img">
-        <img src={productImage} alt={description} className="img-res" />
+        <img
+          src={productImage}
+          alt={description}
+          title={description}
+          className="img-res"
+        />
       </div>
 
       <div className="card-info">
         <div className="card-heading">
           <h2 className="card-title">{title}</h2>
-          <h4 className="card-subtitle">{`${brand} ${category}`}</h4>
+          {/* <h4 className="card-subtitle">{description}</h4> */}
         </div>
 
         <div className="card-price flex align-ctr">
