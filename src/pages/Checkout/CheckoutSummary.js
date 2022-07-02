@@ -89,9 +89,16 @@ export const CheckoutSummary = ({
       <hr />
       <ul className="flex flex-col">
         {userCart.map((item) => (
-          <li className="flex justify-between price-subheading" key={item.id}>
-            <div>{item.title}</div>
-            <div>{`₹ ${item.originalPrice}`}</div>
+          <li
+            className="flex justify-between align-ctr price-subheading gap-half"
+            key={item.id}
+          >
+            {/* <div>{`${item.title} ${item.category}`}</div> */}
+            <div style={{ flex: 3 }}>{item.description}</div>
+            <div style={{ flex: 1 }}>{`${item.qtyOrdered} pcs.`}</div>
+            <div
+              style={{ flex: 1, whiteSpace: "nowrap" }}
+            >{`₹ ${item.originalPrice}`}</div>
           </li>
         ))}
       </ul>

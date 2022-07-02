@@ -34,6 +34,9 @@ export const ProductCard = ({ product }) => {
     ((originalPrice - price) / originalPrice) * 100
   );
 
+  const shortDescription =
+    description.length > 15 ? `${description.slice(0, 15)}...` : description;
+
   return (
     <div className="product">
       <div className={`card card-ecom badge-container`}>
@@ -44,12 +47,19 @@ export const ProductCard = ({ product }) => {
             </div>
           ) : null}
           <div className="card-img">
-            <img src={productImage} alt={description} className="img-res" />
+            <img
+              src={productImage}
+              alt={description}
+              title={description}
+              className="img-res"
+            />
           </div>
           <div className="badge rating">{rating} ⭐</div>
           <div className="card-heading">
             <h2 className="card-title">{title}</h2>
-            <h4 className="card-subtitle">{`${brand} ${category}`}</h4>
+            <h4 className="card-subtitle" title={description}>
+              {shortDescription}
+            </h4>
           </div>
           <div className="cart-prices flex align-ctr">
             <strong>{`₹ ${price}/-`}</strong>
